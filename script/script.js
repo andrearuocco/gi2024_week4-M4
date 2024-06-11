@@ -1,4 +1,4 @@
-const URL = "https://striveschool-api.herokuapp.com/api/product"
+const URL = "https://striveschool-api.herokuapp.com/api/product/"
 let token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY4NDc2MDhmYzBmMzAwMTU1ZTVhY2UiLCJpYXQiOjE3MTgxMTAwNDgsImV4cCI6MTcxOTMxOTY0OH0.w82hZZEdNUe6s6wiIGb_yBzunMmdHcPLVETAZ85aYgI"
 
 const getData = async () => {
