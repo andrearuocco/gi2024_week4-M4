@@ -1,0 +1,59 @@
+.card {
+    --bs-card-border-width: 0;
+    height: 25rem;
+}
+
+h5 {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.card:hover div.bg-info {
+    position: absolute;
+    right: 3%;
+    left: 3%;
+    bottom: 1rem;
+    border-radius: 5px;
+    display: block !important;
+}
+
+ul {
+    font-family: cursive;
+}
+
+h2 {
+    border-radius: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+div.opacity-25 {
+    height: 87.5%;
+}
+
+/*
+img {
+    height: 30rem;
+}
+.card-body {
+    height: 30rem;
+}*/
+
+/*.card-body:hover h5.d-none {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    right: 16px;
+    display: block !important;
+}
+
+ul.d-none {
+    position: absolute;
+    bottom: -2rem;
+    left: 1.72rem;
+    right: 1.72rem;
+}
+
+.card-body:hover ul.d-none {
+    display: flex !important;
+}*/
+
