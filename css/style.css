@@ -1,6 +1,6 @@
 .card {
     --bs-card-border-width: 0;
-    height: 25rem;
+    height: 22.5rem;
 }
 
 h5 {
@@ -10,8 +10,8 @@ h5 {
 
 .card:hover div.bg-info {
     position: absolute;
-    right: 3%;
-    left: 3%;
+    right: 3.5%;
+    left: 3.5%;
     bottom: 1rem;
     border-radius: 5px;
     display: block !important;
@@ -28,6 +28,10 @@ h2 {
 
 div.opacity-25 {
     height: 87.5%;
+}
+
+.card:hover img{
+    border: 2px solid rgb(25, 135, 84);
 }
 
 /*
