@@ -12,12 +12,37 @@ const getData = async () => {
     return response
 }
 
-//getData().then(data => {
+function object() {
+    const name = document.getElementById("name").value
+    const description = document.getElementById("description").value
+    const brand = document.getElementById("brand").value
+    const imageUrl = document.getElementById("imageUrl").value
+    const price = document.getElementById("price").value
+    fetch(URL, {
+        headers: {
+            "Authorization": token,
+            "Content-Type": "application/json"
+        },
+        method: "POST",
+        body: JSON.stringify({
+            name: name,
+            description: description,
+            brand: brand,
+            imageUrl: imageUrl,
+            price: price
+        })
+    })
+    .then(response => {
+        console.log(response)
+    })
+}
+
+//   getData().then(data => {
 //    console.log(data)
 //})
 
 // dichiarazione "Nokia camaleonte" (frontend)
-var productO = {
+/*let productO = {
     name: "3310 cellphone",
     description: "An unforgettable icon.",
     brand: "Nokia",
@@ -35,14 +60,16 @@ const addProduct = async function(product) {
         },
         body: JSON.stringify(product)
     })
-}
+}*/
+/*    */
 
 document.addEventListener("DOMContentLoaded", () => {
-    /*addProduct(productO)*/ //aggiungo "Nokia camaleonte" (/**/ - only product0)
-
-    // richiamo la function che fa la chiamata al server e ne prendo i dati per stamparli in console 
     getData().then(data => {
-        console.log(data)
-    })
-})
+        console.log(data)})
+ })
+
+
+
+
+
 

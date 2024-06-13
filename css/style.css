@@ -1,6 +1,6 @@
 .card {
     --bs-card-border-width: 0;
-    height: 22.5rem;
+    height: 25rem;
 }
 
 h5 {
@@ -10,8 +10,8 @@ h5 {
 
 .card:hover div.bg-info {
     position: absolute;
-    right: 3.5%;
-    left: 3.5%;
+    right: 5%;
+    left: 5%;
     bottom: 1rem;
     border-radius: 5px;
     display: block !important;
@@ -30,34 +30,9 @@ div.opacity-25 {
     height: 87.5%;
 }
 
-.card:hover img{
-    border: 2px solid rgb(25, 135, 84);
+.card:hover img {
+    border: 3px solid rgb(25, 135, 84);
 }
 
-/*
-img {
-    height: 30rem;
-}
-.card-body {
-    height: 30rem;
-}*/
 
-/*.card-body:hover h5.d-none {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    right: 16px;
-    display: block !important;
-}
-
-ul.d-none {
-    position: absolute;
-    bottom: -2rem;
-    left: 1.72rem;
-    right: 1.72rem;
-}
-
-.card-body:hover ul.d-none {
-    display: flex !important;
-}*/
 
