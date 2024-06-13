@@ -38,7 +38,7 @@ async function object() {
         PRODUCT.innerHTML = ""
         data.forEach(element => {
             
-            PRODUCT.innerHTML += `<p>${element._id}  ${element.name}  <i class="fa-solid fa-pencil" onclick="change('${element._id}')"></i>  <i class="fa-solid fa-trash" onclick="trash('${element._id}'), remove()"></i></p>`
+            PRODUCT.innerHTML += `<p>${element._id}  ${element.name}  <i class="fa-solid fa-pencil" onclick="change('${element._id}')"></i>  <i class="fa-solid fa-trash" onclick="remove('${element._id}')"></i></p>`
         });
     })
 }
@@ -88,19 +88,22 @@ async function trash(id) {
         PRODUCT.innerHTML = ""
         data.forEach(element => {
             
-            PRODUCT.innerHTML += `<p>${element._id}  ${element.name}  <i class="fa-solid fa-pencil" onclick="change('${element._id}')"></i>  <i class="fa-solid fa-trash" onclick="trash('${element._id}'), remove()"></i></p>`
+            PRODUCT.innerHTML += `<p>${element._id}  ${element.name}  <i class="fa-solid fa-pencil" onclick="change('${element._id}')"></i>  <i class="fa-solid fa-trash" onclick="remove('${element._id}')"></i></p>`
         });
     })
 }
 
-function remove() {
+function remove(id) {
+    const MODALFOOTER = document.getElementById("modal-footer")
+    MODALFOOTER.innerHTML = `<button type="button" class="btn btn-primary" onclick="trash('${id}')">Save changes</button>`
     const REMOVE = document.getElementById("delete-modal")
-    REMOVE.classList.add("d-block")
+    REMOVE.classList.add("block")
 }
  
 function closed() {
     console.log("ciao")
     const REMOVE = document.getElementById("delete-modal")
+    REMOVE.classList.remove("block")
     REMOVE.classList.add("none")
 }
 
@@ -108,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
     getData().then(data => {
         data.forEach(element => {
             const PRODUCT = document.querySelector(".product")
-            PRODUCT.innerHTML += `<p>${element._id}  ${element.name}  <i class="fa-solid fa-pencil" onclick="change('${element._id}')"></i>  <i class="fa-solid fa-trash" onclick="trash('${element._id}'), remove()"></i></p>`
+            PRODUCT.innerHTML += `<p>${element._id}  ${element.name}  <i class="fa-solid fa-pencil" onclick="change('${element._id}')"></i>  <i class="fa-solid fa-trash" onclick="remove('${element._id}')"></i></p>`
         });
     })
  })
