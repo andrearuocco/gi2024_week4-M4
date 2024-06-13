@@ -32,8 +32,8 @@ function object() {
             price: price
         })
     })
-    .then(response => {
-        console.log(response)
+    getData().then(data => {
+        console.log(data)
     })
 }
 
@@ -63,10 +63,10 @@ const addProduct = async function(product) {
 }*/
 /*    */
 
-document.addEventListener("DOMContentLoaded", () => {
+/*document.addEventListener("DOMContentLoaded", () => {
     getData().then(data => {
         console.log(data)})
- })
+ })*/
 
 
 
