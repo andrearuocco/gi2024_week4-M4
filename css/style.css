@@ -34,5 +34,8 @@ div.opacity-25 {
     border: 3px solid rgb(25, 135, 84);
 }
 
+.none {
+    display: none !important;
+}
 
 
