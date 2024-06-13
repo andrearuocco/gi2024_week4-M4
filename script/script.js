@@ -12,13 +12,13 @@ const getData = async () => {
     return response
 }
 
-function object() {
+async function object() {
     const name = document.getElementById("name").value
     const description = document.getElementById("description").value
     const brand = document.getElementById("brand").value
     const imageUrl = document.getElementById("imageUrl").value
     const price = document.getElementById("price").value
-    fetch(URL, {
+    await fetch(URL, {
         headers: {
             "Authorization": token,
             "Content-Type": "application/json"
@@ -32,8 +32,14 @@ function object() {
             price: price
         })
     })
-    getData().then(data => {
+    await getData().then(data => {
         console.log(data)
+        const PRODUCT = document.querySelector(".product")
+        PRODUCT.innerHTML = ""
+        data.forEach(element => {
+            
+            PRODUCT.innerHTML += `<p>${element._id}  ${element.name}  <i class="fa-solid fa-pencil" onclick="change('${element._id}')"></i>  <i class="fa-solid fa-trash" onclick="trash('${element._id}')"></i></p>`
+        });
     })
 }
 
@@ -63,10 +69,38 @@ const addProduct = async function(product) {
 }*/
 /*    */
 
-/*document.addEventListener("DOMContentLoaded", () => {
+function change(id) {
+    console.log("Modifica " + id)
+}
+
+async function trash(id) {
+    await fetch(URL + id, {
+        method: "DELETE",
+        headers: {
+            "Authorization": token,
+            "Content-Type": "application/json"
+        }
+    })
+
+    await getData().then(data => {
+        console.log(data)
+        const PRODUCT = document.querySelector(".product")
+        PRODUCT.innerHTML = ""
+        data.forEach(element => {
+            
+            PRODUCT.innerHTML += `<p>${element._id}  ${element.name}  <i class="fa-solid fa-pencil" onclick="change('${element._id}')"></i>  <i class="fa-solid fa-trash" onclick="trash('${element._id}')"></i></p>`
+        });
+    })
+}
+
+document.addEventListener("DOMContentLoaded", () => {
     getData().then(data => {
-        console.log(data)})
- })*/
+        data.forEach(element => {
+            const PRODUCT = document.querySelector(".product")
+            PRODUCT.innerHTML += `<p>${element._id}  ${element.name}  <i class="fa-solid fa-pencil" onclick="change('${element._id}')"></i>  <i class="fa-solid fa-trash" onclick="trash('${element._id}')"></i></p>`
+        });
+    })
+ })
 
 
 
