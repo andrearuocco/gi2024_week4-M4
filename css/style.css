@@ -42,4 +42,8 @@ div.opacity-25 {
     display: block !important;
 }
 
+td.border-success {
+    border-radius: 20px;
+}
+
 
