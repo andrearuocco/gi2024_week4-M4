@@ -12,9 +12,9 @@
     <table class="container">
        
         <tbody>
-          <tr class="d-flex">
+          <tr class="row">
             
-            <td class="w-25 border-3 border-success p-3 mt-2">
+            <td class="border-3 border-success p-3 mt-4 col-6">
                 <div>
                     <label for="name" class="pb-2">Name</label>
                     <input type="text" name="name" id="name" class="form-control"/>
@@ -42,7 +42,7 @@
 
                 <button id="object" type="button" class="btn bg-info mt-2 mb-2" onclick="object()">INSERISCI</button>
             </td>
-            <td class="product"></td>
+            <td class="product col-6"></td>
            
           </tr>
         
@@ -65,6 +65,51 @@
           </div>
         </div>
       </div>
+
+      <div class="modal" tabindex="-1" id="edit-modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Modal title</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closed()"></button>
+            </div>
+            <div class="modal-body">
+              <div>
+                <label for="name_ed" class="pb-2">Name</label>
+                <input type="text" name="name_ed" id="name_ed" class="form-control"/>
+                <input type="text" name="id_ed" id="id_ed" class="d-none" />
+            </div>
+
+            <div>
+                <label for="description_ed" class="pb-2">Description</label>
+                <input type="text" name="description_ed" id="description_ed" class="form-control"/>
+            </div>
+
+            <div>
+                <label for="brand_ed" class="pb-2">Brand</label>
+                <input type="text" name="brand" id="brand_ed" class="form-control"/>
+            </div>
+
+            <div>
+                <label for="imageUrl_ed" class="pb-2">Url image</label>
+                <input type="text" name="imageUrl_ed" id="imageUrl_ed" class="form-control"/>
+            </div>
+
+            <div>
+                <label for="name_ed" class="pb-2">Price</label>
+                <input type="text" name="price_ed" id="price_ed" class="form-control"/>
+            </div>
+
+            <button id="edit" type="button" class="btn bg-info mt-2 mb-2" onclick="edit()">INSERISCI</button>
+            </div>
+            <div class="modal-footer" id="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="closed()">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="overlay bg-success d-none"></div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script src="./script/script.js"></script>
 </body>
