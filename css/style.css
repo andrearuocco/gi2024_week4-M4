@@ -44,6 +44,7 @@ div.opacity-25 {
 
 td.border-success {
     border-radius: 20px;
+    height: max-content;
 }
 
 .overlay {
