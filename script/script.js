@@ -18,29 +18,41 @@ async function object() {
     const brand = document.getElementById("brand").value
     const imageUrl = document.getElementById("imageUrl").value
     const price = document.getElementById("price").value
-    await fetch(URL, {
-        headers: {
-            "Authorization": token,
-            "Content-Type": "application/json"
-        },
-        method: "POST",
-        body: JSON.stringify({
-            name: name,
-            description: description,
-            brand: brand,
-            imageUrl: imageUrl,
-            price: price
-        })
-    })
-    await getData().then(data => {
-        console.log(data)
-        const PRODUCT = document.querySelector(".product")
-        PRODUCT.innerHTML = ""
-        data.forEach(element => {
-            
-            PRODUCT.innerHTML += `<div class="d-flex list-unstyled justify-content-between"><h5>${element._id}</h5> <p>${element.name}</p> <div><i class="fa-solid fa-pencil pe-3" onclick="change('${element._id}')"></i> <i class="fa-solid fa-trash" onclick="remove('${element._id}')"></i></div></div>`
-        });
-    })
+    if ((name !== "") && (description !== "") && (brand !== "") && (imageUrl !== "") && (price !== "") && (!(isNaN(price)))) {
+        await fetch(URL, {
+            headers: {
+                "Authorization": token,
+                "Content-Type": "application/json"
+            },
+            method: "POST",
+            body: JSON.stringify({
+                name: name,
+                description: description,
+                brand: brand,
+                imageUrl: imageUrl,
+                price: price
+            })
+        }).then(async response => {
+            if(response.status === 200) {
+                await getData().then(data => {
+                    console.log(data)
+                    const PRODUCT = document.querySelector(".product")
+                    PRODUCT.innerHTML = ""
+                    data.forEach(element => {
+        
+                        PRODUCT.innerHTML += `<div class="d-flex list-unstyled justify-content-between"><h5>${element._id}</h5> <p>${element.name}</p> <div><i class="fa-solid fa-pencil pe-3" onclick="change('${element._id}')"></i> <i class="fa-solid fa-trash" onclick="remove('${element._id}')"></i></div></div>`
+                    });
+                })
+            }
+            else {
+                alert("Attenzione!! Articolo già in magazzino")
+            }
+        } )
+       
+    }
+    else {
+        alert("Per inserire correttamente un nuovo prodotto è necessario compilare tutti i campi presenti. Controlla che il campo price sia un numero con un punto per eventuale valore decimale. Grazie")
+    }
 }
 
 //      getData().then(data => {
@@ -92,33 +104,36 @@ async function edit() {
     let imageUrl_ed = document.getElementById("imageUrl_ed").value 
     let price_ed = document.getElementById("price_ed").value 
     let id_ed = document.getElementById("id_ed").value 
-
-    await fetch(URL + id_ed, {
-        headers: {
-            "Authorization": token,
-            "Content-Type": "application/json"
-        },
-        method: 'PUT',
-        body: JSON.stringify({
-            name: name_ed,
-            description: description_ed,
-            brand: brand_ed,
-            imageUrl: imageUrl_ed,
-            price: price_ed
+    if ((name_ed !== "") && (description_ed !== "") && (brand_ed !== "") && (imageUrl_ed !== "") && (price_ed !== "") && (!(isNaN(price_ed)))) {
+        await fetch(URL + id_ed, {
+            headers: {
+                "Authorization": token,
+                "Content-Type": "application/json"
+            },
+            method: 'PUT',
+            body: JSON.stringify({
+                name: name_ed,
+                description: description_ed,
+                brand: brand_ed,
+                imageUrl: imageUrl_ed,
+                price: price_ed
+            })
         })
-    })
 
-    await getData().then(data => {
-        const PRODUCT = document.querySelector(".product")
-        PRODUCT.innerHTML = ""
-        data.forEach(element => {
-            
-            PRODUCT.innerHTML += `<div class="d-flex list-unstyled justify-content-between"><h5>${element._id}</h5> <p>${element.name}</p> <div><i class="fa-solid fa-pencil pe-3" onclick="change('${element._id}')"></i> <i class="fa-solid fa-trash" onclick="remove('${element._id}')"></i></div></div>`
-        });
-    })
+        await getData().then(data => {
+            const PRODUCT = document.querySelector(".product")
+            PRODUCT.innerHTML = ""
+            data.forEach(element => {
 
-    closed()
-  
+                PRODUCT.innerHTML += `<div class="d-flex list-unstyled justify-content-between"><h5>${element._id}</h5> <p>${element.name}</p> <div><i class="fa-solid fa-pencil pe-3" onclick="change('${element._id}')"></i> <i class="fa-solid fa-trash" onclick="remove('${element._id}')"></i></div></div>`
+            });
+        })
+
+        closed()
+    }
+    else {
+        alert("Per inserire correttamente un nuovo prodotto è necessario compilare tutti i campi presenti. Controlla che il campo price sia un numero con un punto per eventuale valore decimale. Grazie")
+    }
 }
 
 async function trash(id) {
