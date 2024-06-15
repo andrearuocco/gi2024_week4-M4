@@ -57,7 +57,15 @@ getData().then(data => {
 
             const HEADINGT = document.createElement("h5")
             HEADINGT.className = "card-title text-white"
-            HEADINGT.innerText = `${element.name}`
+
+
+            const BUTTON = document.createElement("a")
+            BUTTON.className = "tede-no"
+            BUTTON.href = "./dettagli.html?id=" + element._id
+            BUTTON.innerText = `${element.name}`
+            HEADINGT.appendChild(BUTTON)
+
+
             DIVTH.appendChild(UL)
             DIVTH.appendChild(HEADINGT)
 
@@ -104,7 +112,15 @@ getData().then(data => {
 
             const HEADINGT2 = document.createElement("h5")
             HEADINGT2.className = "card-title text-white"
-            HEADINGT2.innerText = `${element.name}`
+
+            
+            const BUTTON2 = document.createElement("a")
+            BUTTON2.className = "tede-no"
+            BUTTON2.href = "./dettagli.html?id=" + element._id
+            BUTTON2.innerText = `${element.name}`
+            HEADINGT2.appendChild(BUTTON2)
+           
+
             DIVTH2.appendChild(UL2)
             DIVTH2.appendChild(HEADINGT2)
 
