@@ -42,7 +42,8 @@ getData().then(data => {
     BUTTON.className = "btn bg-info text-white"
     BUTTON.style.fontSize = "1.4rem"
     BUTTON.style.fontWeight = "bold"
-    BUTTON.onclick = /*addToCar(`${data._id}`, `${data.price}`)*/
+    BUTTON.type = "button"
+    BUTTON.setAttribute("onclick", "addToCar('" + data._id + "', " + data.price + ")") 
     BUTTON.innerText = "Aggiungi al carrello"
 
     ASIDE.appendChild(H1)
@@ -51,3 +52,33 @@ getData().then(data => {
     ASIDE.appendChild(H3)
     ASIDE.appendChild(BUTTON)
 })
+
+function addToCar(id, price) {
+    let car = localStorage.getItem("cart")
+    let carArray = {
+        id: id,
+        price: price,
+        number: 1
+    }
+    if (car === null) {
+        localStorage.setItem("cart", JSON.stringify([carArray]))
+    }
+    else {
+        car = JSON.parse(car)
+        let exit = 1
+        car.forEach((element, index) => {
+            if (element.id === id) {
+                carArray.number += element.number + 1
+                car.splice(index)
+                car.push(carArray)
+                localStorage.setItem("cart", JSON.stringify(car))
+                exit = 0
+            }
+        })
+        if (exit === 1) {
+            car.push(carArray)
+            localStorage.setItem("cart", JSON.stringify(car))
+        }
+    }
+}
+
