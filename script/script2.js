@@ -55,28 +55,28 @@ getData().then(data => {
 
 function addToCar(id, price) {
     let car = localStorage.getItem("cart")
-    let carArray = {
+    let carObject = {
         id: id,
         price: price,
-        number: 1
+        number: 1,
     }
-    if (car === null) {
-        localStorage.setItem("cart", JSON.stringify([carArray]))
+    if (car == null) {
+        localStorage.setItem("cart", JSON.stringify([carObject]))
     }
     else {
         car = JSON.parse(car)
         let exit = 1
         car.forEach((element, index) => {
             if (element.id === id) {
-                carArray.number += element.number + 1
+                carObject.number = element.number + 1
                 car.splice(index)
-                car.push(carArray)
+                car.push(carObject)
                 localStorage.setItem("cart", JSON.stringify(car))
                 exit = 0
             }
         })
         if (exit === 1) {
-            car.push(carArray)
+            car.push(carObject)
             localStorage.setItem("cart", JSON.stringify(car))
         }
     }
