@@ -135,7 +135,7 @@ getData().then(data => {
     })
 })
 
-/*         
+/*  CONTINUA SOTTO        
     <div class="card text-bg-white col-12 col-sm-6 col-lg-3 position-relative pb-3 pb-lg-0">
 
         <div class="position-absolute bg-info opacity-25"></div>
@@ -159,3 +159,31 @@ getData().then(data => {
         </div>
     </div>
 */
+
+/* gestione funzionalità login modal */
+function modal() {
+    const LOGIN = document.getElementById("login-modal")
+    LOGIN.classList.add("d-block")
+
+    const OVERLAY = document.querySelector(".overlay")
+    OVERLAY.classList.remove("d-none")
+}
+
+function stop() {
+    const LOGIN = document.getElementById("login-modal")
+    LOGIN.classList.remove("d-block")
+
+    const OVERLAY = document.querySelector(".overlay")
+    OVERLAY.classList.add("d-none")
+}
+
+function login() {
+    const email = document.getElementById("email").value
+    const password = document.getElementById("password").value
+    if ((email !== "") && (password !== "")) {
+        const BACK = document.getElementById("back")
+        BACK.href = "./backoffice.html"
+    } else {
+        alert("Compila tutti i campi per autenticarti correttamente!")
+    }
+}

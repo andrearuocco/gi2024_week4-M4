@@ -183,7 +183,7 @@ function closed() {
     EDIT.classList.remove("d-block")
 }
 
-// aggiornamento elementi al caricamneto (aggiornamenti okay anche durante la modifica, la cancellazione e l'inserimento dei prodotti)
+// aggiornamento elementi al caricamento (aggiornamenti okay anche durante la modifica, la cancellazione e l'inserimento dei prodotti)
 document.addEventListener("DOMContentLoaded", () => {
     getData().then(data => {
         data.forEach(element => {
