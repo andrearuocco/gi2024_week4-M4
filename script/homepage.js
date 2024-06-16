@@ -11,6 +11,7 @@ const getData = async () => {
     return response
 }
 
+// creando gli elementi in questo modo ho la posssibilità "dinamica" di gestire lo stile della pagina
 getData().then(data => {
     console.log(data)
     data.forEach((element, i) => {
@@ -24,7 +25,7 @@ getData().then(data => {
             LOTTIE.innerHTML = '<img src="https://www.svgrepo.com/show/51671/shop.svg" class="col-4 h-30" alt="shop" /><img src="https://www.svgrepo.com/show/303503/shopify-logo.svg" class="col-4 h-30" alt="buy" /><img src="https://www.svgrepo.com/show/194550/online-shop.svg" class="col-4 h-30" alt="delivery" />'
             const HEADING = document.createElement("h2")
             HEADING.className = "col-12 bg-success py-3"
-            HEADING.innerText = "I nostri prodotti " + i
+            HEADING.innerText = "I nostri prodotti "
             HEADING.id = `I nostri prodotti ${i}`
 
             const DIVO = document.createElement("div")
@@ -134,26 +135,27 @@ getData().then(data => {
     })
 })
 
-/*         <div class="card text-bg-white col-12 col-sm-6 col-lg-3 position-relative pb-3 pb-lg-0">
+/*         
+    <div class="card text-bg-white col-12 col-sm-6 col-lg-3 position-relative pb-3 pb-lg-0">
 
-            <div class="position-absolute bg-info opacity-25"></div>
+        <div class="position-absolute bg-info opacity-25"></div>
 
-            <img src="https://upload.wikimedia.org/wikipedia/en/f/fe/Dragon_Ball_Xenoverse_2_Cover.jpeg"
-                class="card-img h-100" alt="Dragon_Ball_Xenoverse_2">
+        <img src="https://upload.wikimedia.org/wikipedia/en/f/fe/Dragon_Ball_Xenoverse_2_Cover.jpeg"
+            class="card-img h-100" alt="Dragon_Ball_Xenoverse_2">
 
-            <div class="bg-info d-none">
+        <div class="bg-info d-none">
 
-                <ul class="row list-unstyled text-dark ps-3 pe-3">
+            <ul class="row list-unstyled text-dark ps-3 pe-3">
      
-                    <li class="col-6">Videogames</li>
+                <li class="col-6">Videogames</li>
             
-                    <li class="col-6">dragonball</li>
+                <li class="col-6">dragonball</li>
                
-                   
-                    <li class="col-12">EUR 27,99</li>
+                <li class="col-12">EUR 27,99</li>
   
-                </ul>
-                <h5 class="card-title text-white">Dragon Ball Xenoverse 2</h5>
- 
-            </div>
-        </div>*/
+            </ul>
+        <h5 class="card-title text-white">Dragon Ball Xenoverse 2</h5>
+
+        </div>
+    </div>
+*/

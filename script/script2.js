@@ -1,10 +1,11 @@
 const params = new URLSearchParams(location.search)
 console.log(params)
-var id = params.get("id")
+var id = params.get("id") // da passare a getData
 
 const URL = "https://striveschool-api.herokuapp.com/api/product/"
 let token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY4NDc2MDhmYzBmMzAwMTU1ZTVhY2UiLCJpYXQiOjE3MTgxMTAwNDgsImV4cCI6MTcxOTMxOTY0OH0.w82hZZEdNUe6s6wiIGb_yBzunMmdHcPLVETAZ85aYgI"
 
+// definizione function per chiamata ai dati presenti nel database identificati tramite id (BUTTON / BUTTON2, homepage) 
 const getData = async () => {
     const data = await fetch(URL + id, {
         headers: {
@@ -15,7 +16,7 @@ const getData = async () => {
     return response
 }
 
-
+// creazione prodotto con le sue specifiche nel flusso del DOM
 getData().then(data => {
     const PRODUCT = document.getElementById("product")
     PRODUCT.innerHTML = `<img src='${data.imageUrl}' class="w-100 br-60" />`
@@ -53,6 +54,7 @@ getData().then(data => {
     ASIDE.appendChild(BUTTON)
 })
 
+// function per salvataggio su archiviazione locale
 function addToCar(id, price) {
     let car = localStorage.getItem("cart")
     let carObject = {
