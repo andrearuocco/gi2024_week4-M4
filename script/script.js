@@ -12,6 +12,7 @@ const getData = async () => {
     return response
 }
 
+// function per aggiungere prodotti al magazzino con controlli su eventuali errori dell' utente finale 
 async function object() {
     const name = document.getElementById("name").value
     const description = document.getElementById("description").value
@@ -40,15 +41,14 @@ async function object() {
                     PRODUCT.innerHTML = ""
                     data.forEach(element => {
         
-                        PRODUCT.innerHTML += `<div class="d-flex list-unstyled justify-content-between"><h5>${element._id}</h5> <p>${element.name}</p> <div><i class="fa-solid fa-pencil pe-3" onclick="change('${element._id}')"></i> <i class="fa-solid fa-trash" onclick="remove('${element._id}')"></i></div></div>`
+                        PRODUCT.innerHTML += `<div class="d-flex list-unstyled justify-content-between"><p>${element._id}</p> <h5>${element.name}</h5> <div><i class="fa-solid fa-pencil pe-3" onclick="change('${element._id}')"></i> <i class="fa-solid fa-trash" onclick="remove('${element._id}')"></i></div></div>`
                     });
                 })
             }
             else {
                 alert("Attenzione!! Articolo già in magazzino")
             }
-        } )
-       
+        } )  
     }
     else {
         alert("Per inserire correttamente un nuovo prodotto è necessario compilare tutti i campi presenti. Controlla che il campo price sia un numero con un punto per eventuale valore decimale. Grazie")
@@ -58,8 +58,6 @@ async function object() {
 //      getData().then(data => {
 //          console.log(data)
 //      })
-
-// dichiarazione "Nokia camaleonte" (frontend)
 /*
 let productO = {
     name: "3310 cellphone",
@@ -70,8 +68,8 @@ let productO = {
 }
 */
 
+// function per pre-compilare campi dei prodotti già presenti nel magazzino durante la loro modifica
 function change(id) {
-    console.log("Modifica " + id)
 
     const OVERLAY = document.querySelector(".overlay")
     OVERLAY.classList.remove("d-none")
@@ -97,6 +95,7 @@ function change(id) {
 
 }
 
+// function per modifica un prodotto selezionato dall'admin
 async function edit() {
     let name_ed = document.getElementById("name_ed").value 
     let description_ed = document.getElementById("description_ed").value 
@@ -125,7 +124,7 @@ async function edit() {
             PRODUCT.innerHTML = ""
             data.forEach(element => {
 
-                PRODUCT.innerHTML += `<div class="d-flex list-unstyled justify-content-between"><h5>${element._id}</h5> <p>${element.name}</p> <div><i class="fa-solid fa-pencil pe-3" onclick="change('${element._id}')"></i> <i class="fa-solid fa-trash" onclick="remove('${element._id}')"></i></div></div>`
+                PRODUCT.innerHTML += `<div class="d-flex list-unstyled justify-content-between"><p>${element._id}</p> <h5>${element.name}</h5> <div><i class="fa-solid fa-pencil pe-3" onclick="change('${element._id}')"></i> <i class="fa-solid fa-trash" onclick="remove('${element._id}')"></i></div></div>`
             });
         })
 
@@ -136,6 +135,7 @@ async function edit() {
     }
 }
 
+// function per eliminare un prodotto dal magazzino (remove(id))
 async function trash(id) {
     await fetch(URL + id, {
         method: "DELETE",
@@ -151,16 +151,17 @@ async function trash(id) {
         PRODUCT.innerHTML = ""
         data.forEach(element => {
             
-            PRODUCT.innerHTML += `<div class="d-flex list-unstyled justify-content-between"><h5>${element._id}</h5> <p>${element.name}</p> <div><i class="fa-solid fa-pencil pe-3" onclick="change('${element._id}')"></i> <i class="fa-solid fa-trash" onclick="remove('${element._id}')"></i></div></div>`
+            PRODUCT.innerHTML += `<div class="d-flex list-unstyled justify-content-between"><p>${element._id}</p> <h5>${element.name}</h5> <div><i class="fa-solid fa-pencil pe-3" onclick="change('${element._id}')"></i> <i class="fa-solid fa-trash" onclick="remove('${element._id}')"></i></div></div>`
         });
     })
 
     closed()
 }
 
+// gestione del modal "Sei sicuro di voler cancellare l'articolo dal magazzino ?"
 function remove(id) {
     const MODALFOOTER = document.getElementById("modal-footer")
-    MODALFOOTER.innerHTML = `<button type="button" class="btn btn-primary" onclick="trash('${id}')">Save changes</button>`
+    MODALFOOTER.innerHTML = `<button type="button" class="btn btn-primary" onclick="trash('${id}')">ELIMINA</button>`
     const REMOVE = document.getElementById("delete-modal")
 
     const OVERLAY = document.querySelector(".overlay")
@@ -168,7 +169,8 @@ function remove(id) {
 
     REMOVE.classList.add("block")
 }
- 
+
+// gestione chiusura dei modal presenti in backoffice
 function closed() {
     const REMOVE = document.getElementById("delete-modal")
     REMOVE.classList.remove("block")
@@ -181,11 +183,12 @@ function closed() {
     EDIT.classList.remove("d-block")
 }
 
+// aggiornamento elementi al caricamneto (aggiornamenti okay anche durante la modifica, la cancellazione e l'inserimento dei prodotti)
 document.addEventListener("DOMContentLoaded", () => {
     getData().then(data => {
         data.forEach(element => {
             const PRODUCT = document.querySelector(".product")
-            PRODUCT.innerHTML += `<div class="d-flex list-unstyled justify-content-between"><h5>${element._id}</h5> <p>${element.name}</p> <div><i class="fa-solid fa-pencil pe-3" onclick="change('${element._id}')"></i> <i class="fa-solid fa-trash" onclick="remove('${element._id}')"></i></div></div>`
+            PRODUCT.innerHTML += `<div class="d-flex list-unstyled justify-content-between"><p>${element._id}</p> <h5>${element.name}</h5> <div><i class="fa-solid fa-pencil pe-3" onclick="change('${element._id}')"></i> <i class="fa-solid fa-trash" onclick="remove('${element._id}')"></i></div></div>`
         });
     })
  })

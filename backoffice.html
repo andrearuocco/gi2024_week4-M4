@@ -1,116 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marketplace M4</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/60ec5e93bb.js" crossorigin="anonymous"></script>
-    <link href="./css/style.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marketplace M4</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/60ec5e93bb.js" crossorigin="anonymous"></script>
+  <link href="./css/style.css" rel="stylesheet">
 </head>
 <body>
-    <table class="container">
-       
-        <tbody>
-          <tr class="row">
-            
-            <td class="border-3 border-success p-3 mt-4 col-6">
-                <div>
-                    <label for="name" class="pb-2">Name</label>
-                    <input type="text" name="name" id="name" class="form-control"/>
-                </div>
+  <header class="container-fluid p-3 bg-info mb-2">
+    <h1 class="ff-fa">Gestionale-RUOC<span class="fs-ob">: ecommerce, booking, administration e molto altro ancora</span></h1>
+  </header>
+  <table class="container">
 
-                <div>
-                    <label for="description" class="pb-2">Description</label>
-                    <input type="text" name="description" id="description" class="form-control"/>
-                </div>
+    <tbody>
+      <tr class="row">
 
-                <div>
-                    <label for="brand" class="pb-2">Brand</label>
-                    <input type="text" name="brand" id="brand" class="form-control"/>
-                </div>
-
-                <div>
-                    <label for="imageUrl" class="pb-2">Url image</label>
-                    <input type="text" name="imageUrl" id="imageUrl" class="form-control"/>
-                </div>
-
-                <div>
-                    <label for="name" class="pb-2">Price</label>
-                    <input type="text" name="price" id="price" class="form-control"/>
-                </div>
-
-                <button id="object" type="button" class="btn bg-info mt-2 mb-2" onclick="object()">INSERISCI</button>
-            </td>
-            <td class="product col-6"></td>
-           
-          </tr>
-        
-        </tbody>
-      </table>
-
-      <div class="modal" tabindex="-1" id="delete-modal">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Modal title</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closed()"></button>
-            </div>
-            <div class="modal-body">
-              <p>Modal body text goes here.</p>
-            </div>
-            <div class="modal-footer" id="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="closed()">Close</button>
-            </div>
+        <td class="border-3 border-success p-3 mt-4 col-12 col-md-4">
+          <div>
+            <label for="name" class="pb-2">Name</label>
+            <input type="text" name="name" id="name" class="form-control" />
           </div>
+
+          <div>
+            <label for="description" class="pb-2">Description</label>
+            <input type="text" name="description" id="description" class="form-control" />
+          </div>
+
+          <div>
+            <label for="brand" class="pb-2">Brand</label>
+            <input type="text" name="brand" id="brand" class="form-control" />
+          </div>
+
+          <div>
+            <label for="imageUrl" class="pb-2">Url image</label>
+            <input type="text" name="imageUrl" id="imageUrl" class="form-control" />
+          </div>
+
+          <div>
+            <label for="name" class="pb-2">Price</label>
+            <input type="text" name="price" id="price" class="form-control" />
+          </div>
+
+          <button id="object" type="button" class="btn bg-info mt-2 mb-2" onclick="object()">INSERISCI</button>
+        </td>
+        <td class="product col-12 col-md-8"></td>
+
+      </tr>
+    </tbody>
+
+  </table>
+  <footer class="row">
+    <lottie-player src="./script/truck-delivery-done.json" background="transparent" speed="1" direction="1"
+      mode="normal" class="position-relative col-md-4 col-12" style="height: auto;" loop autoplay></lottie-player>
+    <div class="col-md-8 col-12 mt-3 align-self-center text-end bg-info rounded-2">
+      <h6 class="pe-3 text-white">Contattaci per assistenza sul servizio Gestionale-RUOC 3421767992</h6>
+      <h6 class="pe-3 text-white">Sede: Livorno</h6>
+    </div>
+  </footer>
+
+  <div class="modal" tabindex="-1" id="delete-modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Sei sicuro di voler cancellare l'articolo dal magazzino ?</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+            onclick="closed()"></button>
+        </div>
+        <div class="modal-body">
+          <p>La cancellazione sarà irreversibile.</p>
+        </div>
+        <div class="modal-footer" id="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="closed()">ELIMINA</button>
         </div>
       </div>
+    </div>
+  </div>
 
-      <div class="modal" tabindex="-1" id="edit-modal">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Modal title</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closed()"></button>
-            </div>
-            <div class="modal-body">
-              <div>
-                <label for="name_ed" class="pb-2">Name</label>
-                <input type="text" name="name_ed" id="name_ed" class="form-control"/>
-                <input type="text" name="id_ed" id="id_ed" class="d-none" />
-            </div>
-
-            <div>
-                <label for="description_ed" class="pb-2">Description</label>
-                <input type="text" name="description_ed" id="description_ed" class="form-control"/>
-            </div>
-
-            <div>
-                <label for="brand_ed" class="pb-2">Brand</label>
-                <input type="text" name="brand" id="brand_ed" class="form-control"/>
-            </div>
-
-            <div>
-                <label for="imageUrl_ed" class="pb-2">Url image</label>
-                <input type="text" name="imageUrl_ed" id="imageUrl_ed" class="form-control"/>
-            </div>
-
-            <div>
-                <label for="name_ed" class="pb-2">Price</label>
-                <input type="text" name="price_ed" id="price_ed" class="form-control"/>
-            </div>
-
-            <button id="edit" type="button" class="btn bg-info mt-2 mb-2" onclick="edit()">INSERISCI</button>
-            </div>
-            <div class="modal-footer" id="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="closed()">Close</button>
-            </div>
+  <div class="modal" tabindex="-1" id="edit-modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modifica prodotto</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+            onclick="closed()"></button>
+        </div>
+        <div class="modal-body">
+          <div>
+            <label for="name_ed" class="pb-2">Name</label>
+            <input type="text" name="name_ed" id="name_ed" class="form-control" />
+            <input type="text" name="id_ed" id="id_ed" class="d-none" />
           </div>
+
+          <div>
+            <label for="description_ed" class="pb-2">Description</label>
+            <input type="text" name="description_ed" id="description_ed" class="form-control" />
+          </div>
+
+          <div>
+            <label for="brand_ed" class="pb-2">Brand</label>
+            <input type="text" name="brand" id="brand_ed" class="form-control" />
+          </div>
+
+          <div>
+            <label for="imageUrl_ed" class="pb-2">Url image</label>
+            <input type="text" name="imageUrl_ed" id="imageUrl_ed" class="form-control" />
+          </div>
+
+          <div>
+            <label for="name_ed" class="pb-2">Price</label>
+            <input type="text" name="price_ed" id="price_ed" class="form-control" />
+          </div>
+
+          <button id="edit" type="button" class="btn bg-info mt-2 mb-2" onclick="edit()">INSERISCI</button>
+        </div>
+        <div class="modal-footer" id="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="closed()">Non voglio
+            modificare</button>
         </div>
       </div>
+    </div>
+  </div>
 
-      <div class="overlay bg-success d-none"></div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-<script src="./script/script.js"></script>
+  <div class="overlay bg-success d-none"></div>
+
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="./script/script.js"></script>
 </body>
+
 </html>
