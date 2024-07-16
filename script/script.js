@@ -1,5 +1,5 @@
 const URL = "https://striveschool-api.herokuapp.com/api/product/"
-let token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY4NDc2MDhmYzBmMzAwMTU1ZTVhY2UiLCJpYXQiOjE3MTgxMTAwNDgsImV4cCI6MTcxOTMxOTY0OH0.w82hZZEdNUe6s6wiIGb_yBzunMmdHcPLVETAZ85aYgI"
+let token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjY4MTE2NjhmYzBmMzAwMTU1ZTU4ZTQiLCJpYXQiOjE3MjExNjczNDksImV4cCI6MTcyMjM3Njk0OX0.dBPU02rABXVlISho3ZTplljVFe4Vtk2vs8uOw_bsMkw"
 
 // function per chiamata al server di riferimento 
 const getData = async () => {
